@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProjectWeather</string>
+    <string name="please_select_location">Please Select Location</string>
+    <string name="item1" />
+    <string name="item">Item</string>
+
+</resources>
