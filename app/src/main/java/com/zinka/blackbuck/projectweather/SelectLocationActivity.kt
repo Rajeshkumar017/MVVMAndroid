@@ -1,5 +1,6 @@
 package com.zinka.blackbuck.projectweather
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,23 +19,27 @@ class SelectLocationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_location_activity)
 
-        initRecyclerView()
         initViewModel()
-
     }
-    private fun initRecyclerView(){
-        val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-        recyclerAdapter= CustomAdapter()
-        recyclerview.adapter=recyclerAdapter
 
-    }
     private fun initViewModel(){
         val viewModel = ViewModelProvider(this).get(RestViewModel::class.java)
         viewModel.getLocationWeatherMutableLiveData().observe(this, Observer {
                 if(it!=null){
-                    recyclerAdapter.setlocationlist(it)
+                    recyclerAdapter = CustomAdapter(it) {
+                        val intent = Intent(this@SelectLocationActivity, CityWeatherActivity::class.java)
+                        intent.putExtra("City", it.city)
+                        intent.putExtra("Temperature", it.temparature)
+                        intent.putExtra("Humidity", it.humidity)
+                        intent.putExtra("WindSpeed", it.windSpeed)
+                        intent.putExtra("WindDirection", it.windDirection)
+                        intent.putExtra("Condition", it.weatherCondition)
+                        startActivity(intent)
+                    }
                     recyclerAdapter.notifyDataSetChanged()
+                    val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
+                    recyclerview.layoutManager = LinearLayoutManager(this)
+                    recyclerview.adapter=recyclerAdapter
                     Log.d("Success",it.toString())
                 }
             else{
@@ -42,6 +47,5 @@ class SelectLocationActivity : AppCompatActivity() {
                 }
         })
         viewModel.makeAPICall()
-
     }
 }

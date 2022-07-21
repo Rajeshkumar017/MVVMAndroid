@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28396739130434784" />
         <entry key="app/src/main/res/layout/city_cardview_activity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/city_weather_activity.xml" value="0.1716485507246377" />
         <entry key="app/src/main/res/layout/select_location_activity.xml" value="0.28396739130434784" />
       </map>
     </option>

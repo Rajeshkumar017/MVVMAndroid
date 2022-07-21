@@ -13,16 +13,7 @@ import com.zinka.blackbuck.projectweather.models.LocationWeather
 import com.zinka.blackbuck.projectweather.models.LocationWeatherItem
 
 
-class CustomAdapter() : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
-
-    private var locationList : LocationWeather ?=null
-
-    val arraylist = arrayListOf<String>("Bangalore","Hyderabad")
-
-
-    fun setlocationlist(locationlist:LocationWeather?){
-      this.locationList=locationList
-    }
+class CustomAdapter(val allLocationslist : LocationWeather, val onClickCallback :  (LocationWeatherItem) -> Unit) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView= LayoutInflater.from(parent.context).inflate(R.layout.city_cardview_activity,parent,false)
@@ -30,16 +21,16 @@ class CustomAdapter() : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.cityName.text= locationList?.get(position)?.city
-//        holder.cityName.text=arraylist[position].toString()
+        holder.cityName.text= allLocationslist[position].city
+        holder.itemView.setOnClickListener { v ->
+            onClickCallback.invoke(allLocationslist[position])
+        }
         Log.d("Success holder",holder.cityName.text.toString())
     }
 
     override fun getItemCount(): Int {
-        if(locationList == null) return 0
-        else return locationList?.size!!
-//        return  arraylist.size
-
+        if(allLocationslist == null) return 0
+        else return allLocationslist?.size!!
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {

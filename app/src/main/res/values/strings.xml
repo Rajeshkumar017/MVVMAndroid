@@ -3,5 +3,17 @@
     <string name="please_select_location">Please Select Location</string>
     <string name="item1" />
     <string name="item">Item</string>
+    <string name="change_location"> Change Location </string>
+    <string name="city_name" />
+    <string name="temperature_icon"> Temperature </string>
+    <string name="temperature" />
+    <string name="humidity_icon"> Humidity </string>
+    <string name="humidity" />
+    <string name="windspeed_icon"> WindSpeed </string>
+    <string name="windspeed" />
+    <string name="wind_direction_icon"> WindDirection </string>
+    <string name="wind_direction" />
+    <string name="condition_icon"> Condition </string>
+    <string name="condition" />
 
 </resources>
