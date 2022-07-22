@@ -2,24 +2,31 @@ package com.zinka.blackbuck.projectweather
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.zinka.blackbuck.projectweather.databinding.CityWeatherActivityBinding
+import com.zinka.blackbuck.projectweather.utils.Constants
 
 class CityWeatherActivity: AppCompatActivity() {
+
+    lateinit var binding: CityWeatherActivityBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.city_weather_activity)
-        val changeLocationBtn: Button = findViewById(R.id.button2);
+        binding = CityWeatherActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val changeLocationBtn: Button = binding.button2;
         changeLocationBtn.setOnClickListener {
             val intent = Intent(this, SelectLocationActivity::class.java);
             startActivity(intent);
         }
-        findViewById<TextView>(R.id.cityname).text = intent.getStringExtra("City")
-        findViewById<TextView>(R.id.temperature).text = intent.getStringExtra("Temperature")
-        findViewById<TextView>(R.id.humidity).text = intent.getStringExtra("Humidity")
-        findViewById<TextView>(R.id.windSpeed).text = intent.getStringExtra("WindSpeed")
-        findViewById<TextView>(R.id.windDirection).text = intent.getStringExtra("WindDirection")
-        findViewById<TextView>(R.id.condition).text = intent.getStringExtra("Condition")
+        binding.cityname.text = intent.getStringExtra(Constants.CITY)
+        binding.temperature.text = intent.getStringExtra(Constants.TEMPERATURE)
+        binding.humidity.text = intent.getStringExtra(Constants.HUMIDITY)
+        binding.windSpeed.text = intent.getStringExtra(Constants.WINDSPEED)
+        binding.windDirection.text = intent.getStringExtra(Constants.WINDDIRECTION)
+        binding.condition.text = intent.getStringExtra(Constants.CONDITION)
     }
 }

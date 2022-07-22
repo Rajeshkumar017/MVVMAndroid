@@ -6,34 +6,38 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CursorAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.zinka.blackbuck.projectweather.databinding.CityCardviewActivityBinding
+import com.zinka.blackbuck.projectweather.databinding.CityWeatherActivityBinding
 import com.zinka.blackbuck.projectweather.models.LocationWeather
 import com.zinka.blackbuck.projectweather.models.LocationWeatherItem
 
 
-class CustomAdapter(val allLocationslist : LocationWeather, val onClickCallback :  (LocationWeatherItem) -> Unit) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val allLocationslist : LocationWeather, private val onClickCallback :  (LocationWeatherItem) -> Unit) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
+    class ViewHolder(private val binding: CityCardviewActivityBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(get: LocationWeatherItem) {
+            binding.city.text = get.city
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView= LayoutInflater.from(parent.context).inflate(R.layout.city_cardview_activity,parent,false)
-        return  ViewHolder(itemView)
+        val itemView = CityCardviewActivityBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.cityName.text= allLocationslist[position].city
+        holder.bind(allLocationslist[position])
         holder.itemView.setOnClickListener { v ->
             onClickCallback.invoke(allLocationslist[position])
         }
-        Log.d("Success holder",holder.cityName.text.toString())
+//        Log.d("Success holder",holder.cityName.text.toString())
     }
 
     override fun getItemCount(): Int {
-        if(allLocationslist == null) return 0
-        else return allLocationslist?.size!!
-    }
-
-    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        var cityName : TextView = itemView.findViewById(R.id.city)
+        return allLocationslist.size
     }
 }
