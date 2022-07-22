@@ -1,17 +1,9 @@
 package com.zinka.blackbuck.projectweather
 
-import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.CursorAdapter
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zinka.blackbuck.projectweather.databinding.CityCardviewActivityBinding
-import com.zinka.blackbuck.projectweather.databinding.CityWeatherActivityBinding
 import com.zinka.blackbuck.projectweather.models.LocationWeather
 import com.zinka.blackbuck.projectweather.models.LocationWeatherItem
 

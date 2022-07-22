@@ -2,9 +2,7 @@ package com.zinka.blackbuck.projectweather
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.zinka.blackbuck.projectweather.databinding.CityWeatherActivityBinding
 import com.zinka.blackbuck.projectweather.utils.Constants

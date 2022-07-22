@@ -8,9 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.zinka.blackbuck.projectweather.databinding.SelectLocationActivityBinding
-import com.zinka.blackbuck.projectweather.models.LocationWeather
 import com.zinka.blackbuck.projectweather.network.RestViewModel
 import com.zinka.blackbuck.projectweather.utils.Constants
 
