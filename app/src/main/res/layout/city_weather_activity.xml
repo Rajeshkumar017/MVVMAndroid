@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00D4BB"
+    android:background="@drawable/weather2"
+    android:id="@+id/constraintlayout"
     tools:context=".CityWeatherActivity">
 
     <Button
@@ -71,7 +72,8 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/temperature"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
                 </TableRow>
 
@@ -94,7 +96,8 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/humidity"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
                 </TableRow>
 
@@ -117,7 +120,9 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/windspeed"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
                 </TableRow>
 
                 <TableRow
@@ -139,7 +144,9 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/wind_direction"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
                 </TableRow>
 
                 <TableRow
@@ -161,7 +168,9 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/condition"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
                 </TableRow>
             </TableLayout>
 

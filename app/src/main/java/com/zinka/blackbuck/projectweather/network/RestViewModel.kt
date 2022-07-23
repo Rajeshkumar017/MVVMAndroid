@@ -16,9 +16,7 @@ class RestViewModel : ViewModel() {
     fun getLocationWeatherMutableLiveData(): LiveData<LocationWeather> = locationWeatherMutableLiveData
 
     fun makeAPICall() = viewModelScope.launch{
-
         val response = restRepository.getLocationsWeather()
-
         if (response.isSuccessful) {
             locationWeatherMutableLiveData.postValue(response.body())
             Log.d("data",getLocationWeatherMutableLiveData().toString())
@@ -26,6 +24,4 @@ class RestViewModel : ViewModel() {
             locationWeatherMutableLiveData.postValue(null)
         }
     }
-
-
 }
