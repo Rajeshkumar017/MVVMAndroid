@@ -72,6 +72,7 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/temperature"
+                        android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -96,6 +97,7 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/humidity"
+                        android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -120,6 +122,7 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/windspeed"
+                        android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -144,6 +147,7 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/wind_direction"
+                        android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -168,6 +172,7 @@
                         android:layout_height="wrap_content"
                         android:padding="20sp"
                         android:text="@string/condition"
+                        android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 

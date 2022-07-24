@@ -33,19 +33,19 @@ class CityWeatherActivity : AppCompatActivity() {
         val condition = binding.condition.text
         var cl: ConstraintLayout = binding.constraintlayout
 
-        if (condition.startsWith("Sun", ignoreCase = true) or condition.startsWith(
+        if (condition.contains("Sun", ignoreCase = true) or condition.contains(
                 "Hot",
                 ignoreCase = true
-            ) or condition.startsWith("Dry", ignoreCase = true)
+            ) or condition.contains("Dry", ignoreCase = true)
         ) {
             cl.setBackgroundResource(R.drawable.weathersunny)
-        } else if (condition.startsWith("Cloud", ignoreCase = true)) {
+        } else if (condition.contains("Cloud", ignoreCase = true)) {
             cl.setBackgroundResource(R.drawable.weathercloudy)
-        } else if (condition.startsWith("Mist", ignoreCase = true)) {
+        } else if (condition.contains("Mist", ignoreCase = true)) {
             cl.setBackgroundResource(R.drawable.weathermisty)
-        } else if (condition.startsWith("Humid", ignoreCase = true)) {
+        } else if (condition.contains("Humid", ignoreCase = true)) {
             cl.setBackgroundResource(R.drawable.weatherhumid)
-        } else if (condition.startsWith("Rain", ignoreCase = true)) {
+        } else if (condition.contains("Rain", ignoreCase = true)) {
             cl.setBackgroundResource(R.drawable.weatherrainy)
         }
     }
