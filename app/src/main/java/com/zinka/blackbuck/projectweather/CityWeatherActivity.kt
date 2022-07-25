@@ -20,7 +20,7 @@ class CityWeatherActivity : AppCompatActivity() {
         val changeLocationBtn: Button = binding.button2;
         changeLocationBtn.setOnClickListener {
             val intent = Intent(this, SelectLocationActivity::class.java);
-            startActivity(intent);
+            startActivity(intent)
         }
 
         binding.cityname.text = intent.getStringExtra(Constants.CITY)
@@ -31,7 +31,7 @@ class CityWeatherActivity : AppCompatActivity() {
         binding.condition.text = intent.getStringExtra(Constants.CONDITION)
 
         val condition = binding.condition.text
-        var cl: ConstraintLayout = binding.constraintlayout
+        val cl: ConstraintLayout = binding.constraintlayout
 
         if (condition.contains("Sun", ignoreCase = true) or condition.contains(
                 "Hot",

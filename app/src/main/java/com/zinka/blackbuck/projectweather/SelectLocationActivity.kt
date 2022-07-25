@@ -34,7 +34,7 @@ class SelectLocationActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this).get(RestViewModel::class.java)
         viewModel.getLocationWeatherMutableLiveData().observe(this, Observer {
             if (it != null) {
-                recyclerAdapter = CustomAdapter(it) {
+                recyclerAdapter = CustomAdapter(it, this) {
                     val intent =
                         Intent(this@SelectLocationActivity, CityWeatherActivity::class.java)
                     intent.putExtra(Constants.CITY, it.city)
@@ -45,7 +45,6 @@ class SelectLocationActivity : AppCompatActivity() {
                     intent.putExtra(Constants.CONDITION, it.weatherCondition)
                     startActivity(intent)
                 }
-                recyclerAdapter.notifyDataSetChanged()
                 binding.recyclerview.adapter = recyclerAdapter
                 Log.d("Success", it.toString())
             } else {

@@ -1,5 +1,6 @@
 package com.zinka.blackbuck.projectweather
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,11 +9,14 @@ import com.zinka.blackbuck.projectweather.models.LocationWeather
 import com.zinka.blackbuck.projectweather.models.LocationWeatherItem
 
 
-class CustomAdapter(private val allLocationslist : LocationWeather, private val onClickCallback :  (LocationWeatherItem) -> Unit) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val allLocationslist : LocationWeather, val context: Context, private val onClickCallback :  (LocationWeatherItem) -> Unit) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: CityCardviewActivityBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(get: LocationWeatherItem) {
-            binding.city.text = get.city
+        fun bind(get: LocationWeatherItem, rc: Int) {
+            val currentCity = get.city
+            binding.city.text = currentCity
+            binding.roundImage.setBackgroundColor(rc)
+            binding.roundImageText.text = currentCity[0].toString()
         }
     }
 
@@ -22,7 +26,9 @@ class CustomAdapter(private val allLocationslist : LocationWeather, private val 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(allLocationslist[position])
+        val androidColors = context.resources.getIntArray(R.array.androidcolors)
+        val rc = androidColors[(androidColors.indices).random()]
+        holder.bind(allLocationslist[position], rc)
         holder.itemView.setOnClickListener { v ->
             onClickCallback.invoke(allLocationslist[position])
         }
